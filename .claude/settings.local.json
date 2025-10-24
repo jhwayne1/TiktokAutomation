@@ -6,7 +6,8 @@
       "Bash(source venv/bin/activate:*)",
       "Bash(python -m pip install:*)",
       "Bash(chmod:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

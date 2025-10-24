@@ -1,23 +1,52 @@
 # TikTok Image Asset Generator 🎨
 
-Automated system that generates professional TikTok promotional images daily from deal data sourced from an API.
+**Modular, configuration-driven system** that generates professional TikTok promotional images daily from deal data sourced from an API.
 
 ![Automated Generation](https://img.shields.io/badge/Automated-Daily%20at%207AM-brightgreen)
 ![Python](https://img.shields.io/badge/Python-3.11+-blue)
+![Modular](https://img.shields.io/badge/Architecture-Modular-orange)
 ![Status](https://img.shields.io/badge/Status-Production-success)
 
-## Features
+> **🎯 Built for experimentation**: Change colors, layouts, and styles by editing config - no code changes needed!
 
-- Fetches deals from API endpoint
-- Creates individual branded promotional images (1080 x 1920)
-- Generates a collage-style cover page with all daily deals
-- Automatic background removal from product images
-- Beautiful gradient backgrounds (light blue to pink)
-- Uses SF Pro Rounded font for professional appearance
-- Calculates discount percentages automatically
-- Organizes images by date
-- All text in lowercase for consistent branding
-- Text with shadow effects on cover page
+## ✨ Key Features
+
+### Content Generation
+- 📸 Individual branded promotional images (1080 x 1920)
+- 🎨 Collage-style cover page with all daily deals
+- 🎬 Animated cover page (GIF with floating icons)
+- 🎯 End page with call-to-action
+- ✂️ Automatic background removal from product images
+- 💯 Automatic discount percentage calculations
+
+### Modular Architecture
+- ⚙️ **Configuration-driven**: Change colors, layouts, fonts without touching code
+- 🧩 **Reusable components**: DRY principle throughout
+- 🔄 **Easy experimentation**: Swap creative strategies instantly
+- 📦 **Extensible**: Add new generators using existing components
+
+### Automation
+- ⏰ Runs automatically every day at 7:00 AM EST
+- ☁️ GitHub Actions (no server needed)
+- 📧 Email notifications when complete
+- 📦 30-day artifact retention
+
+## 🎨 Quick Customization
+
+Want to change the look? Edit **`config/creative_config.py`**:
+
+```python
+# Change color scheme (30 seconds)
+ACTIVE_COLOR_SCHEME = 'sunset'  # Try: 'blue_pink', 'sunset', 'ocean'
+
+# Change product layout (1 minute)
+ACTIVE_PRODUCT_POSITION = 'scattered'  # Try: 'clustered', 'scattered', 'grid'
+
+# Change text (30 seconds)
+TEXT_TEMPLATES['cover_page']['line1'] = 'your custom text'
+```
+
+**See [CUSTOMIZATION_GUIDE.md](CUSTOMIZATION_GUIDE.md) for all options!**
 
 ## Requirements
 
