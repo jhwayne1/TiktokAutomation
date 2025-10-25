@@ -243,40 +243,48 @@ def create_tiktok_image(deal, font_path_medium, font_path_light):
     # Calculate text dimensions for centering
     brand_font_size = 70
     discount_font_size = 55
-    text_spacing = 15  # Space between brand and discount text
+    text_spacing = 20  # Space between brand and discount text
 
-    # Get actual text heights using bounding boxes
+    # Get actual text and prepare fonts
     brand = deal.get('brand', '').lower()
     discount_text = f"{discount_percent}% off sitewide"
 
-    # Create temporary fonts to measure text
+    # Measure text at a fixed baseline position to get accurate bounding boxes
+    baseline_y = 1000  # Arbitrary baseline position for measurement
+
     if font_path_medium:
         brand_font = ImageFont.truetype(font_path_medium, brand_font_size)
-        brand_bbox = draw.textbbox((0, 0), brand, font=brand_font)
-        brand_height = brand_bbox[3] - brand_bbox[1]
+        brand_bbox = draw.textbbox((500, baseline_y), brand, font=brand_font)
     else:
-        brand_height = brand_font_size
+        brand_font = None
+        brand_bbox = (500, baseline_y, 500 + brand_font_size * 5, baseline_y + brand_font_size)
 
     if font_path_light:
         discount_font = ImageFont.truetype(font_path_light, discount_font_size)
-        discount_bbox = draw.textbbox((0, 0), discount_text, font=discount_font)
-        discount_height = discount_bbox[3] - discount_bbox[1]
+        discount_bbox = draw.textbbox((500, baseline_y + 100), discount_text, font=discount_font)
     else:
-        discount_height = discount_font_size
+        discount_font = None
+        discount_bbox = (500, baseline_y + 100, 500 + discount_font_size * 10, baseline_y + 100 + discount_font_size)
 
-    # Total height of text group (using actual measurements)
-    total_text_height = brand_height + text_spacing + discount_height
+    # Calculate the actual visual heights and spacing
+    brand_visual_height = brand_bbox[3] - brand_bbox[1]
+    discount_visual_height = discount_bbox[3] - discount_bbox[1]
 
-    # Center the text group vertically within the box
-    text_group_start_y = box_y + (box_height - total_text_height) // 2
+    # Total visual height of both text elements plus spacing
+    total_text_height = brand_visual_height + text_spacing + discount_visual_height
 
-    # Add brand name (lowercase) - SF Pro Rounded Medium
-    brand_y = text_group_start_y
+    # Calculate Y position so the group is centered in the white box
+    content_center_y = box_y + (box_height // 2)
+    group_start_y = content_center_y - (total_text_height // 2)
+
+    # Position brand text at the top of the group
+    # Account for the offset between bbox top and the anchor point
+    brand_y = group_start_y - brand_bbox[1] + baseline_y
     add_text_with_font(draw, brand, (IMAGE_WIDTH // 2, brand_y), brand_font_size, font_path_medium,
                       fill='black', align='center')
 
-    # Add discount text (lowercase) - SF Pro Rounded Light
-    discount_y = brand_y + brand_height + text_spacing
+    # Position discount text below brand text
+    discount_y = group_start_y + brand_visual_height + text_spacing - discount_bbox[1] + baseline_y + 100
     add_text_with_font(draw, discount_text, (IMAGE_WIDTH // 2, discount_y), discount_font_size, font_path_light,
                       fill='#666666', align='center')
 
