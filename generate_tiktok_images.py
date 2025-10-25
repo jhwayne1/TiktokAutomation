@@ -245,21 +245,38 @@ def create_tiktok_image(deal, font_path_medium, font_path_light):
     discount_font_size = 55
     text_spacing = 15  # Space between brand and discount text
 
-    # Total height of text group (approximate)
-    total_text_height = brand_font_size + text_spacing + discount_font_size
+    # Get actual text heights using bounding boxes
+    brand = deal.get('brand', '').lower()
+    discount_text = f"{discount_percent}% off sitewide"
+
+    # Create temporary fonts to measure text
+    if font_path_medium:
+        brand_font = ImageFont.truetype(font_path_medium, brand_font_size)
+        brand_bbox = draw.textbbox((0, 0), brand, font=brand_font)
+        brand_height = brand_bbox[3] - brand_bbox[1]
+    else:
+        brand_height = brand_font_size
+
+    if font_path_light:
+        discount_font = ImageFont.truetype(font_path_light, discount_font_size)
+        discount_bbox = draw.textbbox((0, 0), discount_text, font=discount_font)
+        discount_height = discount_bbox[3] - discount_bbox[1]
+    else:
+        discount_height = discount_font_size
+
+    # Total height of text group (using actual measurements)
+    total_text_height = brand_height + text_spacing + discount_height
 
     # Center the text group vertically within the box
     text_group_start_y = box_y + (box_height - total_text_height) // 2
 
     # Add brand name (lowercase) - SF Pro Rounded Medium
-    brand = deal.get('brand', '').lower()
     brand_y = text_group_start_y
     add_text_with_font(draw, brand, (IMAGE_WIDTH // 2, brand_y), brand_font_size, font_path_medium,
                       fill='black', align='center')
 
     # Add discount text (lowercase) - SF Pro Rounded Light
-    discount_text = f"{discount_percent}% off sitewide"
-    discount_y = brand_y + brand_font_size + text_spacing
+    discount_y = brand_y + brand_height + text_spacing
     add_text_with_font(draw, discount_text, (IMAGE_WIDTH // 2, discount_y), discount_font_size, font_path_light,
                       fill='#666666', align='center')
 

@@ -200,8 +200,11 @@ def create_cover_page(deals, font_path):
     print("  Downloading and processing product images...")
     for i, deal in enumerate(deals[:7]):  # Limit to 7 products for better layout
         image_urls = deal.get('image_urls', [])
+        brand = deal.get('brand', '')
         if image_urls:
-            product_img = download_image(image_urls[0])
+            # Use full-body view for Vuori (image 4), otherwise use first image
+            image_index = 3 if brand == 'Vuori' and len(image_urls) > 3 else 0
+            product_img = download_image(image_urls[image_index])
             if product_img:
                 product_img = remove_background(product_img)
                 product_images.append(product_img)
