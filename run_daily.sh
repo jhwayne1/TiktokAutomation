@@ -14,6 +14,10 @@ echo "Generating images for today's deals..."
 python3 generate_all_images.py
 
 echo ""
+echo "Generating caption..."
+python3 generate_caption.py
+
+echo ""
 echo "========================================"
 echo "Done! Check the generated_images folder"
 echo "========================================"
