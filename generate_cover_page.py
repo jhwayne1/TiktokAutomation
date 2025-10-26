@@ -202,9 +202,13 @@ def create_cover_page(deals, font_path):
         image_urls = deal.get('image_urls', [])
         brand = deal.get('brand', '')
         if image_urls:
-            # Use full-body view for Vuori (image 4), otherwise use first image
-            image_index = 3 if brand == 'Vuori' and len(image_urls) > 3 else 0
-            product_img = download_image(image_urls[image_index])
+            # Use specific high-quality image for Vuori
+            if brand == 'Vuori':
+                image_url = 'https://cdn.shopify.com/s/files/1/0022/4008/6074/products/V8003STY_539d9e62-f5d3-4524-ba57-0301aeafb764.jpg?v=1754073098'
+            else:
+                image_url = image_urls[0]
+
+            product_img = download_image(image_url)
             if product_img:
                 product_img = remove_background(product_img)
                 product_images.append(product_img)
