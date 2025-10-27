@@ -215,9 +215,19 @@ def create_end_page(deals, font_path):
         image_urls = deal.get('image_urls', [])
         brand = deal.get('brand', '')
         if image_urls:
-            # Use specific high-quality image for Vuori
+            # Use specific high-quality images for certain brands
             if brand == 'Vuori':
                 image_url = 'https://cdn.shopify.com/s/files/1/0022/4008/6074/products/V8003STY_539d9e62-f5d3-4524-ba57-0301aeafb764.jpg?v=1754073098'
+            elif brand == 'Mejuri':
+                # Use local high-quality image
+                try:
+                    product_img = Image.open('generated_images/2025-10-27/mejuri_earings.png')
+                    product_img = remove_background(product_img)
+                    product_images.append(product_img)
+                    print(f"    Processed product {i+1}/{min(5, len(deals))}")
+                    continue
+                except:
+                    image_url = image_urls[0]
             else:
                 image_url = image_urls[0]
 
