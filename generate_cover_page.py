@@ -216,20 +216,18 @@ def create_cover_page(deals, font_path):
                 except:
                     image_url = image_urls[0]
             elif brand == 'Byredo':
-                # Use local high-quality image
+                # Use local high-quality image (already has proper background)
                 try:
                     product_img = Image.open('generated_images/2025-10-28/byredo.png')
-                    product_img = remove_background(product_img)
                     product_images.append(product_img)
                     print(f"    Processed product {i+1}/{min(7, len(deals))}")
                     continue
                 except:
                     image_url = image_urls[0]
             elif brand == 'Garrett Leight':
-                # Use local high-quality image
+                # Use local high-quality image (already has proper background)
                 try:
                     product_img = Image.open('generated_images/2025-10-28/garretlight.png')
-                    product_img = remove_background(product_img)
                     product_images.append(product_img)
                     print(f"    Processed product {i+1}/{min(7, len(deals))}")
                     continue
