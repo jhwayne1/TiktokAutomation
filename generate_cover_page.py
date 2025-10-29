@@ -242,6 +242,15 @@ def create_cover_page(deals, font_path):
                     continue
                 except:
                     image_url = image_urls[0]
+            elif brand == 'Gap':
+                # Use local high-quality image (already has proper background)
+                try:
+                    product_img = Image.open('generated_images/2025-10-29/gap.avif')
+                    product_images.append(product_img)
+                    print(f"    Processed product {i+1}/{min(7, len(deals))}")
+                    continue
+                except:
+                    image_url = image_urls[0]
             else:
                 image_url = image_urls[0]
 
