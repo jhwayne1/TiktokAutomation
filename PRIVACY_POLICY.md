@@ -1,66 +1,93 @@
-# Privacy Policy - Decoy Daily Deals Automation
+# Privacy Policy - Decoy
 
 **Last Updated:** October 29, 2025
 
 ## Introduction
 
-This Privacy Policy describes how Decoy Daily Deals Automation ("we", "our", or "the Service") handles information when you use our TikTok content automation tool.
+This Privacy Policy describes how Decoy ("we", "our", or "the Platform") handles information when you interact with our services, content, and applications.
+
+## About Decoy
+
+Decoy is a curated shopping deals platform that provides users with daily discounts, promotional content, and product recommendations across various channels including social media and web.
 
 ## Information We Collect
 
-### TikTok Account Information
-When you authorize the Service to access your TikTok account, we collect:
-- TikTok user ID
-- TikTok access token (for posting content)
-- Basic profile information necessary for authentication
+### Social Media Account Information
+When you authorize Decoy to access your social media accounts (such as TikTok), we may collect:
+- User ID and basic profile information
+- Access tokens for posting content
+- Authentication credentials necessary for service functionality
 
-### Generated Content
-The Service generates:
-- Product promotional images
-- Text captions for posts
-- This content is created locally and posted to your TikTok account
+### User Interactions
+We may collect information about:
+- Content you engage with
+- Links you click
+- Products you're interested in
+- Preferences for deal categories
+
+### Automatically Collected Information
+When you visit our website or use our services, we may collect:
+- Device information (browser type, operating system)
+- Usage data (pages viewed, time spent)
+- IP address and general location
+- Cookies and similar technologies
 
 ## How We Use Information
 
-We use the collected information solely to:
-- Authenticate your TikTok account
-- Post content to your TikTok account as authorized
-- Generate daily deal promotional content
+We use the collected information to:
+- Provide and improve our services
+- Curate personalized deal recommendations
+- Post content to authorized social media accounts
+- Analyze platform usage and trends
+- Communicate with users about deals and updates
+- Ensure platform security and prevent fraud
 
-## Data Storage
+## Data Storage and Retention
 
-- TikTok access tokens are stored locally on your machine
-- No personal data is transmitted to third-party servers
-- Generated images are stored locally in the project directory
-- We do not maintain a central database of user information
+- User data is stored securely using industry-standard practices
+- Authentication tokens are encrypted
+- We retain data only as long as necessary for service provision
+- Users can request data deletion at any time
 
 ## Data Sharing
 
 We do NOT:
-- Share your data with third parties
-- Sell your information
-- Use your data for advertising
-- Track your behavior across other websites
+- Sell your personal information to third parties
+- Share your data for advertising purposes without consent
+- Track your behavior across unrelated websites
+- Provide your information to data brokers
+
+We MAY share data with:
+- Service providers who help operate our platform
+- Partners whose products we feature (only aggregated, non-personal data)
+- Law enforcement if legally required
 
 ## Your Rights
 
 You have the right to:
-- Revoke access to your TikTok account at any time through TikTok's settings
-- Delete all locally stored data
-- Request information about what data we have
+- Access the personal information we hold about you
+- Request correction of inaccurate data
+- Request deletion of your data
+- Opt out of marketing communications
+- Revoke social media access permissions at any time
+- Export your data
 
 ## Security
 
 We implement security measures including:
 - Secure OAuth 2.0 authentication
-- Local storage of credentials
-- No transmission of sensitive data over unsecured connections
+- Encrypted data transmission (HTTPS)
+- Regular security audits
+- Secure data storage practices
+- Limited employee access to personal data
 
 ## Third-Party Services
 
-This Service uses:
-- **TikTok API**: Subject to TikTok's Privacy Policy
-- **Deal API**: For fetching product information
+Decoy integrates with:
+- **Social Media Platforms**: Subject to their respective privacy policies (TikTok, Instagram, etc.)
+- **Retail Partners**: Subject to their privacy policies
+- **Analytics Services**: For platform improvement
+- **Payment Processors**: If applicable (subject to their policies)
 
 ## Children's Privacy
 
