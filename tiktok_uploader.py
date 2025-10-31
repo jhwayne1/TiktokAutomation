@@ -11,9 +11,9 @@ from urllib.parse import urlencode
 import webbrowser
 from datetime import datetime
 
-# TikTok API credentials
-CLIENT_KEY = "aw1n1yw1i6thayv0"
-CLIENT_SECRET = "jRlk9x6KxI5NF9Epfl5sfNyllLr7KJZP"
+# TikTok API credentials (Sandbox)
+CLIENT_KEY = "sbawefp9sckxkckw6x"
+CLIENT_SECRET = "Edpgors7PlmNJrK1ZhKywc5jTsu619xl"
 REDIRECT_URI = "https://www.decoys.me/"  # Must match what you set in TikTok Developer Portal
 
 # TikTok API endpoints
@@ -29,7 +29,7 @@ def get_authorization_url():
     """Generate the OAuth authorization URL"""
     params = {
         'client_key': CLIENT_KEY,
-        'scope': 'user.info.basic,video.publish',
+        'scope': 'user.info.basic,video.upload',
         'response_type': 'code',
         'redirect_uri': REDIRECT_URI,
         'state': 'decoy_upload'
