@@ -36,3 +36,6 @@ htmlcov/
 
 # Generated images (uncomment if you don't want to commit generated images)
 # generated_images/
+
+# TikTok credentials
+tiktok_token.json
