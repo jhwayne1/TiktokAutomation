@@ -11,9 +11,9 @@ from urllib.parse import urlencode
 import webbrowser
 from datetime import datetime
 
-# TikTok API credentials (Sandbox)
-CLIENT_KEY = "sbawefp9sckxkckw6x"
-CLIENT_SECRET = "Edpgors7PlmNJrK1ZhKywc5jTsu619xl"
+# TikTok API credentials (Production)
+CLIENT_KEY = "aw1n1yw1i6thayv0"
+CLIENT_SECRET = "jRlk9x6KxI5NF9Epfl5sfNyllLr7KJZP"
 REDIRECT_URI = "https://www.decoys.me/"  # Must match what you set in TikTok Developer Portal
 
 # TikTok API endpoints
